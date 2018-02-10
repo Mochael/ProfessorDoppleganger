@@ -7,7 +7,7 @@ class Professors(models.Model):
     profPic = models.CharField(default="", max_length=400)
 
 class User(models.Model):
-    image = models.ImageField(upload_to='PostStorage')
+    image = models.ImageField(upload_to='PostStorage', null = True, blank=True)
     class Meta:
       db_table = "profile"
 
