@@ -15,7 +15,6 @@ def dif(a, b):
     return abs(a-b)
 
 def main(url):
-    url = "https://github.com/Mochael/ProfessorDoppleganger/blob/master/tanishq.jpg?raw=true"
     userdata = Image_properties.get_data(url)
     minnum = 1.0
     minindex = 0

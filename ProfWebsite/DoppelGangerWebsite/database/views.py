@@ -31,7 +31,7 @@ class MainPage(View):
             professorName = Testing.main(url)
             shortName = professorName[:-4]
             context["name"]=shortName
-
+            context["oldURL"] = url
             url2 = 'https://github.com/Mochael/ProfessorDoppleganger/blob/master/ProfImages/'+professorName.replace(' ', '%20')+'?raw=true'
             context["url"] = url2
             return render(request, "compare.html", context)
