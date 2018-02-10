@@ -1,6 +1,8 @@
 #import userdata
 import data
 #import test
+import requests
+import urllib.request
 import Image_properties 
 import os
 
@@ -23,7 +25,10 @@ def main():
             minnum = score
     name = os.listdir("ProfImages")[minindex][:-4]
     print(name)
-    
+    with urllib.request.urlopen("https://apis.scottylabs.org/directory/v1/andrewID/odb") as response:
+        page = response.read()
+    print(page)
+    return name
     
 
 
