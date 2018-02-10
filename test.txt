@@ -1,0 +1,204 @@
+[
+  {
+    "faceAttributes": {
+      "accessories": [
+        {
+          "confidence": 0.96,
+          "type": "glasses"
+        }
+      ],
+      "age": 24.0,
+      "blur": {
+        "blurLevel": "low",
+        "value": 0.05
+      },
+      "emotion": {
+        "anger": 0.006,
+        "contempt": 0.002,
+        "disgust": 0.006,
+        "fear": 0.004,
+        "happiness": 0.896,
+        "neutral": 0.016,
+        "sadness": 0.003,
+        "surprise": 0.067
+      },
+      "exposure": {
+        "exposureLevel": "goodExposure",
+        "value": 0.42
+      },
+      "facialHair": {
+        "beard": 0.0,
+        "moustache": 0.0,
+        "sideburns": 0.0
+      },
+      "gender": "male",
+      "glasses": "ReadingGlasses",
+      "hair": {
+        "bald": 0.01,
+        "hairColor": [
+          {
+            "color": "black",
+            "confidence": 1.0
+          },
+          {
+            "color": "other",
+            "confidence": 0.64
+          },
+          {
+            "color": "brown",
+            "confidence": 0.56
+          },
+          {
+            "color": "gray",
+            "confidence": 0.15
+          },
+          {
+            "color": "red",
+            "confidence": 0.12
+          },
+          {
+            "color": "blond",
+            "confidence": 0.03
+          }
+        ],
+        "invisible": false
+      },
+      "headPose": {
+        "pitch": 0.0,
+        "roll": -7.5,
+        "yaw": -11.6
+      },
+      "makeup": {
+        "eyeMakeup": false,
+        "lipMakeup": false
+      },
+      "noise": {
+        "noiseLevel": "low",
+        "value": 0.0
+      },
+      "occlusion": {
+        "eyeOccluded": false,
+        "foreheadOccluded": false,
+        "mouthOccluded": false
+      },
+      "smile": 0.896
+    },
+    "faceId": "10c55d8a-9c62-4f80-9cd6-b47b6378f836",
+    "faceLandmarks": {
+      "eyeLeftBottom": {
+        "x": 184.0,
+        "y": 248.8
+      },
+      "eyeLeftInner": {
+        "x": 193.5,
+        "y": 243.5
+      },
+      "eyeLeftOuter": {
+        "x": 173.4,
+        "y": 245.6
+      },
+      "eyeLeftTop": {
+        "x": 181.5,
+        "y": 239.5
+      },
+      "eyeRightBottom": {
+        "x": 246.4,
+        "y": 240.6
+      },
+      "eyeRightInner": {
+        "x": 234.9,
+        "y": 238.4
+      },
+      "eyeRightOuter": {
+        "x": 257.5,
+        "y": 236.5
+      },
+      "eyeRightTop": {
+        "x": 245.4,
+        "y": 231.3
+      },
+      "eyebrowLeftInner": {
+        "x": 199.4,
+        "y": 225.8
+      },
+      "eyebrowLeftOuter": {
+        "x": 158.0,
+        "y": 233.0
+      },
+      "eyebrowRightInner": {
+        "x": 225.4,
+        "y": 220.9
+      },
+      "eyebrowRightOuter": {
+        "x": 273.1,
+        "y": 220.8
+      },
+      "mouthLeft": {
+        "x": 196.1,
+        "y": 306.1
+      },
+      "mouthRight": {
+        "x": 255.7,
+        "y": 299.1
+      },
+      "noseLeftAlarOutTip": {
+        "x": 195.1,
+        "y": 281.2
+      },
+      "noseLeftAlarTop": {
+        "x": 200.5,
+        "y": 267.3
+      },
+      "noseRightAlarOutTip": {
+        "x": 242.0,
+        "y": 273.7
+      },
+      "noseRightAlarTop": {
+        "x": 229.5,
+        "y": 262.7
+      },
+      "noseRootLeft": {
+        "x": 203.4,
+        "y": 243.9
+      },
+      "noseRootRight": {
+        "x": 223.1,
+        "y": 241.3
+      },
+      "noseTip": {
+        "x": 213.8,
+        "y": 276.4
+      },
+      "pupilLeft": {
+        "x": 182.4,
+        "y": 241.9
+      },
+      "pupilRight": {
+        "x": 245.0,
+        "y": 234.3
+      },
+      "underLipBottom": {
+        "x": 227.8,
+        "y": 322.8
+      },
+      "underLipTop": {
+        "x": 224.3,
+        "y": 312.8
+      },
+      "upperLipBottom": {
+        "x": 222.5,
+        "y": 300.1
+      },
+      "upperLipTop": {
+        "x": 221.3,
+        "y": 293.5
+      }
+    },
+    "faceRectangle": {
+      "height": 143,
+      "left": 147,
+      "top": 199,
+      "width": 143
+    }
+  }
+]
