@@ -3,6 +3,7 @@ from database.models import Professors, User
 from database.forms import UserForm
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
+from database import Testing
 
 
 class MainPage(View):
@@ -19,6 +20,31 @@ class MainPage(View):
     def model_form_upload(request):
         if request.method == 'POST':
             form = UserForm(request.POST, request.FILES)
+            url = 'none'
+            if form.is_valid():
+                url = form.cleaned_data['image']
+                print(url)
+            context = {}
+            posts = User.objects.last()
+            context["posts"] = posts
+
+            professorName = Testing.main(url)
+            shortName = professorName[:-4]
+            context["name"]=shortName
+
+            url2 = 'https://github.com/Mochael/ProfessorDoppleganger/blob/master/ProfImages/'+professorName.replace(' ', '%20')+'?raw=true'
+            context["url"] = url2
+            return render(request, "compare.html", context)
+
+
+
+
+
+
+
+
+
+            form = UserForm(request.POST, request.FILES)
             if form.is_valid():
                 form.save()
                 return redirect('compare')
@@ -30,9 +56,17 @@ class MainPage(View):
 
 class ComparePage(View):
     def get(self, request):
+        
+        form = UserForm(request.POST, request.FILES)
+        url = 'none'
+        if form.is_valid():
+            url = form.cleaned_data['url']
+            print(url)
         context = {}
-        post = User.image
-        context["post"] = post
+        posts = User.objects.last()
+        context["posts"] = posts
+        context["url"] = url
+
         return render(request, "compare.html", context)
 
 
