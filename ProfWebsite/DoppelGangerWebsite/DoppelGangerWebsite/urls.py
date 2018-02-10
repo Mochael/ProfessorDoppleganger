@@ -16,10 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.conf.urls import url
+from django.conf import settings
+from django.conf.urls.static import static
+#from database import views
+from database.views import MainPage, ComparePage
 
-from DoppelGangerWebsite.views import MainPage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', MainPage.as_view(), name="main")
+    url(r'^$', MainPage.model_form_upload, name="main"),
+    url(r'^compare/$', ComparePage.as_view(), name='compare')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

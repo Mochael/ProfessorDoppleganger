@@ -1,3 +1,63 @@
-from django.shortcuts import render
+from django.views.generic.base import View
+from database.models import Professors, User
+from database.forms import UserForm
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
 
-# Create your views here.
+
+class MainPage(View):
+    form_class = UserForm
+    template_name = "index.html"
+
+    def get(self, request):
+        return render(request, "index.html")
+#    def loadMatch(self, request):
+#        match = Professors.match(userPicInput)
+#        return render(request, "index.html", match)
+
+
+    def model_form_upload(request):
+        if request.method == 'POST':
+            form = UserForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                return redirect('compare')
+        else:
+            form = UserForm()
+        return render(request, 'index.html', {
+            'form': form
+        })
+
+class ComparePage(View):
+    def get(self, request):
+        context = {}
+        post = User.image
+        context["post"] = post
+        return render(request, "compare.html", context)
+
+
+'''    def post(self, request):
+        form = self.form_class(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('model_form_upload.html')
+        return render(request, 'model_form_upload.html', {'form': form})'''
+    
+'''class MainPage(View):
+
+    def SaveProfile(self, request):
+        saved = False
+    
+        if request.method == "POST":
+            #Get the posted form
+            MyProfileForm = UserForm(request.POST, request.FILES)
+            
+            if MyProfileForm.is_valid():
+                profile = User()
+                profile.image = MyProfileForm.cleaned_data["picture"]
+                profile.save()
+                saved = True
+        else:
+            MyProfileForm = User()
+                
+        return render(request, 'index.html', locals())'''

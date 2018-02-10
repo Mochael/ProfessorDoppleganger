@@ -1,4 +1,4 @@
-{% load static files %}
+{% load static %}
 <html>
     <head>
         <title>
@@ -8,19 +8,20 @@
         <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     </head>
 
+    {% block content %}
     <h1>
         Upload a picture of you face to be matched with the Carnegie Mellon Professor who looks the most like you
     </h1>
 
     <body>
-        <button type="button" class="btn btn-primary">
-            Upload Image
-        </button>
-        <div class="personImage">
-            <img class="image" src="{{ match }}">
-        </div>
-        <div class="personImage">
-        </div>
+        <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Upload</button>
+        </form>
+
 
     </body>
+
+    {% endblock content %}
 </html>
