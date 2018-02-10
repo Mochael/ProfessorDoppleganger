@@ -1,49 +1,57 @@
 #import userdata
 import data
+#import test
+import Image_properties 
 import os
 
-userdata = data.professors[5]
+#userdata = data.professors[13]
+url = "https://github.com/Mochael/ProfessorDoppleganger/blob/master/tanishq.jpg?raw=true"
 
-score = []
+userdata = Image_properties.get_data(url)
 
 
 def dif(a, b):
-	return abs(a-b)
+    return abs(a-b)
 
 def main():
-	minnum = 0.0
-	minindex = 0
-	for index in range(len(data.professors)):
-		score = testing(index)
-		if(score < minnum):
-			minindex = index
-			minnum = score
-			print(score)
-	print(minindex)
-	return minindex
+    minnum = 1.0
+    minindex = 0
+    for index in range(len(data.professors)):
+        score = testing(index)
+        if(score < minnum):
+            minindex = index
+            minnum = score
+    name = os.listdir("ProfImages")[minindex][:-4]
+    print(name)
+    
+    
 
 
 def testing(index):
-	sum = 0.0
+    score = []
+    sum = 0.0
 
-	for i in range(len(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"])):
-		score.append(dif(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"],userdata[0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"]))
+    for i in range(len(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"])):
+        score.append(dif(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"],userdata[0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"]))
 
-	score.append(dif(data.professors[index][0]["faceAttributes"]["smile"], userdata[0]["faceAttributes"]["smile"]))
 
-	if(data.professors[index][0]["faceAttributes"]["gender"] == userdata[0]["faceAttributes"]["gender"]):
-		score.append(0.0)
+    score.append(dif(data.professors[index][0]["faceAttributes"]["smile"], userdata[0]["faceAttributes"]["smile"]))
 
-	else:
-		score.append(1.0)
+    if(data.professors[index][0]["faceAttributes"]["gender"] == userdata[0]["faceAttributes"]["gender"]):
+        score.append(0.0)
 
-	for i in {"beard", "moustache", "sideburns"}:
-		score.append(dif(data.professors[index][0]["faceAttributes"]["facialHair"][i], userdata[0]["faceAttributes"]["facialHair"][i]))
+    else:
+        score.append(1.0)
 
-	for i in range(len(score)):
-		sum += score[i]/len(score)
+    for i in {"beard", "moustache", "sideburns"}:
+        score.append(dif(data.professors[index][0]["faceAttributes"]["facialHair"][i], userdata[0]["faceAttributes"]["facialHair"][i]))
 
-	return sum
+
+
+    for i in range(len(score)):
+        sum += score[i]/len(score)
+
+    return sum
 
 main()
 
