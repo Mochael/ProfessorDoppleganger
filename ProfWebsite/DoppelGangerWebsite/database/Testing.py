@@ -16,7 +16,7 @@ def dif(a, b):
 
 def main(url):
     userdata = Image_properties.get_data(url)
-    minnum = 1.0
+    minnum = 10.0
     minindex = 0
     for index in range(len(data.professors)):
         score = testing(index, userdata)
@@ -34,8 +34,9 @@ def testing(index, userdata):
     score = []
     sum = 0.0
 
-    for i in range(len(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"])):
-        score.append(dif(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"],userdata[0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"]))
+    if userdata[0]["faceAttributes"]["hair"]["bald"] < 0.5 and userdata[0]["faceAttributes"]["hair"]["invisible"] == False:
+        for i in range(len(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"])):
+            score.append(dif(data.professors[index][0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"],userdata[0]["faceAttributes"]["hair"]["hairColor"][i]["confidence"]))
 
 
     score.append(dif(data.professors[index][0]["faceAttributes"]["smile"], userdata[0]["faceAttributes"]["smile"]))
@@ -44,7 +45,7 @@ def testing(index, userdata):
         score.append(0.0)
 
     else:
-        score.append(1.0)
+        score.append(10.0)
 
     for i in {"beard", "moustache", "sideburns"}:
         score.append(dif(data.professors[index][0]["faceAttributes"]["facialHair"][i], userdata[0]["faceAttributes"]["facialHair"][i]))

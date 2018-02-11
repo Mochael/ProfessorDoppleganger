@@ -14,11 +14,20 @@
     </h1>
 
     <body>
+        <div class="row">
+        <div class = "col-md-12 col-xs-12">
+        <div class="text-center">
+        <div class="jumbotron vertical-center">
         <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Upload</button>
         </form>
+        </div>
+        </div>
+        </div>
+        </body>
+
 
 
     </body>

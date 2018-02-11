@@ -27,12 +27,14 @@ class MainPage(View):
             context = {}
             posts = User.objects.last()
             context["posts"] = posts
-
+            print(url)
             professorName = Testing.main(url)
             shortName = professorName[:-4]
             context["name"]=shortName
-            context["oldURL"] = url
-            url2 = 'https://github.com/Mochael/ProfessorDoppleganger/blob/master/ProfImages/'+professorName.replace(' ', '%20')+'?raw=true'
+            #context["oldURL"] = url
+            url2 = 'https://github.com/Mochael/ProfessorDoppleganger/blob/master/ProfWebsite/DoppelGangerWebsite/database/ProfImages/'+professorName.replace(' ', '%20')+'?raw=true'
+            #url2 = 'https://github.com/Mochael/ProfessorDoppleganger/blob/master/ProfImages/'+professorName.replace(' ', '%20')+'?raw=true'
+            print(url2)
             context["url"] = url2
             return render(request, "compare.html", context)
 
